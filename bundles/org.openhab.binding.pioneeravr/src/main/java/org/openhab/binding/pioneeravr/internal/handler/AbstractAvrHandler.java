@@ -208,6 +208,10 @@ public abstract class AbstractAvrHandler extends BaseThingHandler
                     manageInputSourceChannelUpdate(response);
                     break;
 
+                case PLAYING_LISTENING_MODE:
+                    managePlayingListeningModeUpdate(response);
+                    break;
+
                 case DISPLAY_INFORMATION:
                     manageDisplayedInformationUpdate(response);
                     break;
@@ -285,6 +289,16 @@ public abstract class AbstractAvrHandler extends BaseThingHandler
      */
     private void manageInputSourceChannelUpdate(AvrResponse response) {
         updateState(getChannelUID(PioneerAvrBindingConstants.SET_INPUT_SOURCE_CHANNEL, response.getZone()),
+                new StringType(response.getParameterValue()));
+    }
+
+    /**
+     * Notify an AVR now-playing, in-effect listening mode (audio output format) update to openHAB
+     *
+     * @param response
+     */
+    private void managePlayingListeningModeUpdate(AvrResponse response) {
+        updateState(getChannelUID(PioneerAvrBindingConstants.PLAYING_LISTENING_MODE_CHANNEL, response.getZone()),
                 new StringType(response.getParameterValue()));
     }
 
