@@ -37,6 +37,8 @@ public class SimpleCommand implements AvrCommand {
         MUTE_QUERY("?M", "?Z2M", "?Z3M", "?HZM"),
         INPUT_CHANGE_CYCLIC("FU"),
         INPUT_CHANGE_REVERSE("FD"),
+        LISTENING_MODE_CHANGE_CYCLIC("0010SR"),
+        LISTENING_MODE_QUERY("?S"),
         INPUT_QUERY("?F", "?ZS", "?ZT", "?ZEA");
 
         private String zoneCommands[];

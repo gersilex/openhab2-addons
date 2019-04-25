@@ -88,6 +88,14 @@ public interface AvrConnection {
     public boolean sendSourceInputQuery(int zone);
 
     /**
+     * Send a listening mode state query to the AVR
+     *
+     * @param zone
+     * @return
+     */
+    public boolean sendListeningModeQuery(int zone);
+
+    /**
      * Send a power command ot the AVR based on the openHAB command
      *
      * @param command
@@ -113,6 +121,15 @@ public interface AvrConnection {
      * @return
      */
     public boolean sendInputSourceCommand(Command command, int zone) throws CommandTypeNotSupportedException;
+
+    /**
+     * Send a listening mode selection command to the AVR based on the openHAB command
+     *
+     * @param command
+     * @param zone
+     * @return
+     */
+    public boolean sendListeningModeCommand(Command command, int zone) throws CommandTypeNotSupportedException;
 
     /**
      * Send a mute command to the AVR based on the openHAB command
